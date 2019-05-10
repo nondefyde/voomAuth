@@ -1,0 +1,8 @@
+/*DateTimePicker overrides*/
+.rdt input {
+    font-size: 13px;
+    color: #495057;
+    border: solid 1px #e2e9ee !important;
+    background-color: #f5f6fa !important;
+    font-family: inherit;
+}

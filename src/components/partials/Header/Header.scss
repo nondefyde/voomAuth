@@ -1,0 +1,246 @@
+.main_header {
+  background: #fff;
+  border-bottom: 1px solid #e4ebf0;
+
+  .voom-logo {
+    display: inline-block;
+    img {
+      max-width: 65%;
+      margin: 10px 0 10px 12px;
+    }
+  }
+
+  .navbar-brand {
+    img {
+      max-width: 100px;
+    }
+  }
+
+  .navbar-collapse {
+    .account_setting {
+      float: right;
+      display: block;
+      width: 100%;
+
+      .navbar-nav {
+        margin-top: -30px;
+        margin-bottom: -30px;
+        float: right;
+
+        .nav-item {
+          margin: 0 2px;
+          position: relative;
+
+          &.active {
+            .nav-link {
+              color: #1F3A4A;
+              border-bottom: 3px solid #1699E0;
+            }
+          }
+          .nav-link {
+            color: #7E929B;
+            font-size: 11px;
+            font-family: 'Open Sans', sans-serif;
+            border-bottom: 2px solid transparent;
+            padding-top: 30px;
+            padding-bottom: 20px;
+            font-weight: 600;
+            cursor: pointer;
+
+            &:hover {
+              color: #1699E0;
+            }
+
+            &.drop-down-link {
+              margin-top: 27px;
+              border-bottom: 0;
+              cursor: pointer;
+              width: 25px;
+              height: 25px;
+              border-radius: 50%;
+              overflow: hidden;
+              border: 1px solid #ffffff;
+              padding: 0;
+              img {
+                max-width: 100%;
+              }
+
+              &:hover {
+                border-bottom: 0;
+              }
+            }
+          }
+        }
+      }
+
+      .dropdown-menu {
+        right: 0 !important;
+        left: auto !important;
+        min-width: 150px;
+        box-shadow: -0.2px 3.5px 15px 0 rgba(0, 0, 0, 0.1);
+        background-color: #ffffff;
+        border: solid 0.5px #eeeeee;
+        border-radius: 0 0 5px 5px;
+
+        a {
+          font-size: 13px;
+          text-align: center;
+          font-weight: 600;
+          padding: 10px 1.5rem;
+
+          &:hover {
+            // color: #02d4bf;
+          }
+        }
+      }
+    }
+  }
+}
+
+// heare trips form
+
+.header-trips-form {
+  width: 100%;
+  border-left: solid 0.5px #D9E6EB;
+  padding-left: 30px;
+  margin-left: 25px;
+  .col-md-4,
+  .col-md-2 {
+    padding: 0;
+  }
+
+  input {
+    height: 40px;
+    font-size: 12px;
+    text-align: left;
+    font-weight: 500;
+    background: #fff !important;
+    border: 1px solid #D9E6EB !important;
+    &:focus {
+      outline: none !important;
+      box-shadow: none !important;
+      border: 1px solid #D9E6EB !important;
+    }
+  }
+
+  .input-group-text {
+    color: #949090;
+    background-color: #ffffff;
+    border: 1px solid #D9E6EB;
+    border-left: 0;
+  }
+
+  button {
+    margin-left: 5px;
+    font-weight: 600;
+    height: 40px;
+    font-size: 11px !important;
+  }
+}
+
+.hidden {
+  display: none;
+}
+
+@media(max-width: 1199px) {
+  .header-trips-form {
+    margin-left: 0;
+  }
+  .header-trips-form form {
+    width: 475px;
+    display: inline-block;
+  }
+}
+
+@media(max-width: 990px) {
+  .main_header .navbar-collapse .accout_setting {
+    float: none;
+    display: flex;
+    width: 100%;
+    padding-top: 10px;
+  }
+
+  .main_header .navbar-brand img {
+    max-width: 150px;
+  }
+
+  .main_header {
+    display: block;
+    padding: 8px 0;
+  }
+
+  .header-trips-form {
+    margin-left: 0;
+    padding: 0;
+    border: 0;
+    text-align: center;
+    border-top: 1px solid #D9E6EB;
+    padding-top: 10px;
+    margin-top: 15px;
+  }
+
+}
+
+@media(max-width: 766px) {
+  .main_header .header-trips-form button {
+    margin-left: 0 !important;
+    font-weight: 600;
+    height: 45px;
+    font-size: 11px !important;
+  }
+
+  .header-trips-form .input-group-text {
+    height: 45px;
+  }
+
+  .main_header .navbar-brand img {
+    max-width: 200px;
+  }
+
+  .header-trips-form form .col-md-4 {
+    margin-bottom: 5px;
+  }
+
+  .header-trips-form input {
+    height: 45px;
+    margin-bottom: 0;
+  }
+}
+
+@media(max-width: 750px) {
+  .header-trips-form form {
+    width: 100%;
+    display: inline-block;
+    padding: 0 15px;
+  }
+
+  .voom-logo {
+    display: inline-block;
+  }
+}
+
+.header-trips-form button {
+  margin-left: 5px;
+  font-weight: 600;
+  height: 40px;
+  font-size: 11px !important;
+}
+
+.navbar-toggler {
+
+  padding: 0.25rem 0.75rem;
+  font-size: .8rem !important;
+  line-height: 1;
+  background-color: #d9e6eb1c;
+  border: 1px solid #D9E6EB;
+  border-radius: 0.25rem;
+  margin-right: 14px;
+}
+
+@media (max-width: 990px) {
+  .navbar-collapse {
+    box-shadow: -0.2px 25px 55px 0 rgba(0, 0, 0, 0.1);
+    border-top: 1px solid #D9E6EB;
+    margin-top: 8px;
+  }
+}

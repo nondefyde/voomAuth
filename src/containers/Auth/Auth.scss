@@ -1,0 +1,134 @@
+
+main {
+  padding-top: 2.5rem;
+}
+
+.auth-container {
+  width: 450px;
+  margin: 0 auto;
+  text-align: center;
+
+  ul {
+    padding: 0;
+    margin: 0;
+    text-align: center;
+    li {
+      list-style: none;
+      display: inline-block;
+      a {
+        font-size: 14px;
+        font-weight: 600;
+        display: inline-block;
+        padding: 0 15px;
+
+        &.gl {
+          color: #d61c1c;
+          border-left: 1px solid #d2d2d2;
+          cursor: pointer;
+        }
+        &.fb {
+          color: #0b56c7;
+          border-right: 1px solid #d2d2d2;
+          cursor: pointer;
+        }
+      }
+      label {
+        width: 80px;
+        text-align: center;
+        font-weight: 600;
+        margin: 0 15px;
+        font-size: 14px;
+        border-radius: 5px !important;
+        height: 45px;
+        padding: 5px;
+        background-color: #fafafa !important;
+        border: solid 0.5px #efefef !important;
+        line-height: 35px;
+        color: #9e9797;
+      }
+
+      &:last-child {
+        border: 0;
+      }
+    }
+  }
+
+}
+
+@media (max-width: 599px) {
+  .login-container {
+    width: auto;
+    margin: 0 auto;
+    margin-bottom: 60px;
+    height: 100vh;
+  }
+}
+
+.access-area {
+  text-align: left;
+  border-radius: 5px;
+  background-color: #ffffff;
+  border: solid 0.5px #E2E9EE;
+  padding: 0 25px 27px 25px;
+  margin: 15px 15px 20px 15px;
+  h2 {
+    color: #1F3A4A;
+    font-size: 20px;
+    font-weight: 600;
+    padding: 20px 10px;
+    border-bottom: solid 0.5px #E2E9EE;
+    text-align: center;
+    margin-left: -25px;
+    margin-right: -25px;
+  }
+  .short-access {
+    clear: both;
+    padding: 10px 0 17px 0;
+  }
+  form {
+    margin-top: 15px;
+    input {
+      background-color: #fafafa;
+      border: solid 0.5px #efefef;
+      height: 45px;
+      font-size: 12px;
+      border-radius: 0;
+    }
+    button {
+      height: 45px;
+      text-transform: uppercase;
+      font-size: 15px;
+      font-weight: 600;
+      border-radius: 0;
+    }
+  }
+}
+
+.text {
+  font-size: 14px;
+  color: #7E929B;
+  font-weight: 500;
+  margin-bottom: 0;
+
+  a {
+    color: #1699E0;
+    font-weight: 600;
+  }
+}
+
+.app-login-logo {
+  max-height: 70px;
+  margin-bottom: 1rem;
+}
+
+@media (max-width: 360px) {
+  .access-area {
+    padding: 0 15px 20px 15px;
+    margin: 15px 0 20px 0;
+  }
+}
+
+.form-group {
+  margin-bottom: .5rem;
+}
+
