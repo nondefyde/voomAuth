@@ -1,8 +1,8 @@
 import React from 'react';
 import { Field, reduxForm } from 'redux-form';
 import { Button, Form } from 'reactstrap';
-import InputField from '../inputs/TextInput';
-import Progress from '../../Progress';
+import InputField from '../inputs/TextInput/index';
+import Progress from '../../Progress/index';
 
 const validate = (values) => {
 	const errors = {};
@@ -18,15 +18,10 @@ const validate = (values) => {
 	}
 	return errors;
 };
-const UpdatePasswordForm = (props) => {
+const ChangePasswordForm = (props) => {
 	const {handleSubmit, submitting, formLoading, pristine} = props;
 	return (
 		<Form onSubmit={handleSubmit}>
-			<div className="form-group">
-				<Field name="email" type="email"
-				       disabled={true}
-				       component={InputField} placeholder="johndoe@example.com"/>
-			</div>
 			<div className="form-group">
 				<Field name="password" type="password"
 				       disabled={formLoading}
@@ -47,4 +42,4 @@ export default (reduxForm({
 	// a unique name for the form
 	form: 'registerForm',
 	validate
-})(UpdatePasswordForm));
+})(ChangePasswordForm));

@@ -4,7 +4,6 @@ import { ToastContainer } from 'react-toastify';
 import { Switch } from 'react-router-dom';
 import { ConnectedRouter } from 'connected-react-router';
 import Route from './components/Route/Route';
-import HomeComponent from './containers/Home/Home';
 import { history } from './redux/store';
 import LoginComponent from './containers/Auth/Login/Login';
 import RegisterComponent from './containers/Auth/Register/Register';
@@ -12,6 +11,7 @@ import ResetPasswordComponent from './containers/Auth/ResetPassword/ResetPasswor
 import VerifyComponent from './containers/Auth/Verify/Verify';
 import VerifyLinkComponent from './containers/Auth/VerifyLink/VerifyLink';
 import UpdatePasswordComponent from './containers/Auth/UpdatePassword/UpdatePassword';
+import DefaultLayout from './containers/DefaultLayout/DefaultLayout';
 
 export default class App extends Component {
 	render() {
@@ -29,13 +29,12 @@ export default class App extends Component {
 				/>
 				<ConnectedRouter history={history}>
 					<Switch>
-						<Route exact path="/" name="Home" component={HomeComponent}/>
+						<Route path="/" name="Voomsway" component={DefaultLayout}/>
 						<Route exact path="/login" name="Login" component={LoginComponent}/>
 						<Route exact path="/register" name="Register" component={RegisterComponent}/>
 						<Route exact path="/reset-password" name="Reset Password" component={ResetPasswordComponent}/>
 						<Route exact path="/verify-link/:email/:hash" name="Verify" component={VerifyLinkComponent}/>
-						<Route exact path="/update-password/:email/:hash" name="Update Password"
-						       component={UpdatePasswordComponent}/>
+						<Route exact path="/update-password/:email/:hash" name="Update Password" component={UpdatePasswordComponent}/>
 						<Route isPrivate={true} exact path="/verify" name="Verify" component={VerifyComponent}/>
 					</Switch>
 				</ConnectedRouter>
