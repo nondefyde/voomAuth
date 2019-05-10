@@ -1,12 +1,13 @@
 import React from 'react';
 import { Redirect, Route } from 'react-router-dom';
+import authService from'../../services/auth';
 
 const CustomRoute = ({
 	                     component: Component,
-						 isPrivate, 
+	                     isPrivate,
 	                     ...rest
                      }) => {
-	const isLoggedIn = true;
+	const isLoggedIn = authService.isLoggedIn();
 	return (
 		<Route
 			{...rest}

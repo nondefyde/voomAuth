@@ -5,7 +5,7 @@ import { Link } from 'react-router-dom';
 import { Alert } from 'reactstrap';
 import '../Auth.scss';
 import VerifyForm from '../../../components/forms/auth/VerifyForm';
-import { verify, resendVerify } from '../../../redux/actions';
+import { resendVerify, verify } from '../../../redux/actions';
 
 const propTypes = {
 	loading: PropTypes.bool,
@@ -28,11 +28,9 @@ class VerifyComponent extends Component {
 	}
 
 	handleSubmit(values) {
-		console.log('values : ', values);
 		const {verify} = this.props;
 		verify({...values})
 	}
-
 
 	resendVerification(event) {
 		event.preventDefault();
@@ -57,7 +55,7 @@ class VerifyComponent extends Component {
 					<VerifyForm onSubmit={this.handleSubmit} formLoading={loading}/>
 				</div>
 				<p className="send-text">
-					<a href="" onClick={(e) => this.resendVerification(e)} >Resend code</a>
+					<a href="" onClick={(e) => this.resendVerification(e)}>Resend code</a>
 				</p>
 			</main>
 		)

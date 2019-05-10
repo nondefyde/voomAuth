@@ -8,7 +8,10 @@ import HomeComponent from './containers/Home/Home';
 import { history } from './redux/store';
 import LoginComponent from './containers/Auth/Login/Login';
 import RegisterComponent from './containers/Auth/Register/Register';
+import ResetPasswordComponent from './containers/Auth/ResetPassword/ResetPassword';
 import VerifyComponent from './containers/Auth/Verify/Verify';
+import VerifyLinkComponent from './containers/Auth/VerifyLink/VerifyLink';
+import UpdatePasswordComponent from './containers/Auth/UpdatePassword/UpdatePassword';
 
 export default class App extends Component {
 	render() {
@@ -29,7 +32,11 @@ export default class App extends Component {
 						<Route exact path="/" name="Home" component={HomeComponent}/>
 						<Route exact path="/login" name="Login" component={LoginComponent}/>
 						<Route exact path="/register" name="Register" component={RegisterComponent}/>
-						<Route exact path="/verify" name="Verify" component={VerifyComponent}/>
+						<Route exact path="/reset-password" name="Reset Password" component={ResetPasswordComponent}/>
+						<Route exact path="/verify-link/:email/:hash" name="Verify" component={VerifyLinkComponent}/>
+						<Route exact path="/update-password/:email/:hash" name="Update Password"
+						       component={UpdatePasswordComponent}/>
+						<Route isPrivate={true} exact path="/verify" name="Verify" component={VerifyComponent}/>
 					</Switch>
 				</ConnectedRouter>
 			</Fragment>

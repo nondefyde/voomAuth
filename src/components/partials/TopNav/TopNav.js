@@ -26,7 +26,6 @@ const TopNav = ({user, logout}) => {
 				<NavDropdown.Item href="#action/3.1">My Trips</NavDropdown.Item>
 				<NavDropdown.Item href="#action/3.2">Profile</NavDropdown.Item>
 				<NavDropdown.Item href="#action/3.3">Change Password</NavDropdown.Item>
-				<NavDropdown.Divider/>
 				<NavDropdown.Item href="" onClick={logout}>Logout</NavDropdown.Item>
 			</NavDropdown>}
 		</ul>

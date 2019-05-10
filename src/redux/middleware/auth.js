@@ -1,4 +1,16 @@
-import { apiRequest, LOGIN, LOGOUT, navigateTo, POST, REGISTER, RESEND_VERIFY, SOCIAL, VERIFY } from '../actions';
+import {
+	apiRequest,
+	LOGIN,
+	LOGOUT,
+	navigateTo,
+	POST,
+	REGISTER,
+	RESEND_VERIFY,
+	RESET_PASSWORD,
+	SOCIAL, UPDATE_PASSWORD,
+	VERIFY,
+	VERIFY_LINK
+} from '../actions';
 import API from '../../constants/api';
 import APP from '../../constants/app';
 import authservice from '../../services/auth';
@@ -80,6 +92,23 @@ const verify = ({dispatch}) => (next) => (action) => {
 	}
 };
 
+const verifyLink = ({dispatch}) => (next) => (action) => {
+	next(action);
+	if (action.type === VERIFY_LINK.START) {
+		dispatch(apiRequest({
+			method: POST,
+			url: API.VERIFY_LINK,
+			key: 'verifyLink',
+			nextRoute: APP.INDEX,
+			onSuccess: VERIFY.SUCCESS,
+			payload: action.payload
+		}));
+	}
+	if (action.type === VERIFY_LINK.ERROR) {
+		dispatch(navigateTo(APP.LOGIN));
+	}
+};
+
 const resendVerify = ({dispatch}) => (next) => (action) => {
 	next(action);
 	if (action.type === RESEND_VERIFY.START) {
@@ -88,6 +117,33 @@ const resendVerify = ({dispatch}) => (next) => (action) => {
 			url: API.RESEND_VERIFICATION_CODE,
 			key: 'resendVerify',
 			onSuccess: RESEND_VERIFY.SUCCESS,
+			payload: action.payload
+		}));
+	}
+};
+
+const resetPassword = ({dispatch}) => (next) => (action) => {
+	next(action);
+	if (action.type === RESET_PASSWORD.START) {
+		dispatch(apiRequest({
+			method: POST,
+			url: API.RESET_PASSWORD,
+			key: 'resetPassword',
+			nextRoute: APP.LOGIN,
+			payload: action.payload
+		}));
+	}
+};
+
+
+const updatePassword = ({dispatch}) => (next) => (action) => {
+	next(action);
+	if (action.type === UPDATE_PASSWORD.START) {
+		dispatch(apiRequest({
+			method: POST,
+			url: API.UPDATE_PASSWORD,
+			key: 'updatePassword',
+			nextRoute: APP.LOGIN,
 			payload: action.payload
 		}));
 	}
@@ -104,4 +160,4 @@ const logout = ({dispatch}) => (next) => (action) => {
 	}
 };
 
-export default [social, login, register, verify, resendVerify, logout];
+export default [social, login, register, verify, verifyLink, resendVerify, resetPassword, updatePassword, logout];

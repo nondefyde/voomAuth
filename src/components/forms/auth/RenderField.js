@@ -12,6 +12,6 @@ const RenderField = ({
         ((error && <small className="form-text text-danger">{error}</small>) ||
         (warning && <span>{warning}</span>))}
     </div>
-)
+);
 
 export default RenderField;

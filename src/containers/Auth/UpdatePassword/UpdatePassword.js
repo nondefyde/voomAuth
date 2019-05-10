@@ -2,28 +2,22 @@ import React, { Component } from 'react'
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
+import UpdatePasswordForm from '../../../components/forms/auth/UpdatePasswordForm';
 
 import { Alert } from 'reactstrap';
-import { login, social } from '../../../redux/actions';
-import LoginForm from '../../../components/forms/auth/LoginForm'
-import SocialAuth from '../../../components/SocialAuth'
+import { logout, updatePassword } from '../../../redux/actions';
 import '../Auth.scss';
 
 const propTypes = {
 	error: PropTypes.object,
-	isLoggingIn: PropTypes.bool,
-	login: PropTypes.func.isRequired,
-	social: PropTypes.func.isRequired,
+	loading: PropTypes.bool,
+	logout: PropTypes.func.isRequired,
+	resetPassword: PropTypes.func.isRequired,
 };
 
 const defaultProps = {
-	error: null,
-	isLoggingIn: false,
-};
-
-const data = {
-	email: "nondefyde@gmail.com",
-	password: "password"
+	loading: false,
+	error: null
 };
 
 class LoginComponent extends Component {
@@ -35,11 +29,16 @@ class LoginComponent extends Component {
 	}
 
 	componentDidMount() {
+		const {match: {params}, logout} = this.props;
+		if (!params['hash'] && !params['email']) {
+			logout();
+		}
 	}
 
 	handleSubmit(values) {
-		const {login} = this.props;
-		login(values);
+		const {match: {params}, updatePassword} = this.props;
+		const data = {...values, hash: params['hash'], email: params['email']};
+		updatePassword(data);
 	}
 
 	socialResponse({provider, social_id, email, access_token, error}) {
@@ -54,7 +53,7 @@ class LoginComponent extends Component {
 	}
 
 	render() {
-		const {isLoggingIn, error} = this.props;
+		const {loading, error, match: {params}} = this.props;
 		return (
 			<main role="main" className="auth-container">
 				<Link to={''}>
@@ -65,15 +64,9 @@ class LoginComponent extends Component {
 					{error && <Alert color="danger">
 						{error}
 					</Alert>}
-					<div className="short-access">
-						<SocialAuth
-							socialResponse={this.socialResponse}
-						/>
-					</div>
-					<LoginForm initialValues={data} onSubmit={this.handleSubmit} formLoading={isLoggingIn}/>
+					<UpdatePasswordForm initialValues={{email:params['email']}} onSubmit={this.handleSubmit} formLoading={loading}/>
 				</div>
-				<p className="text">New to voomsway? <Link to={'/register'}> Create Account</Link></p>
-				<p className="text"><Link to={'/reset-password'}>Forgot password?</Link></p>
+				<p className="text">Already have an account?<Link to={'/login'}> Login</Link></p>
 			</main>
 		)
 	}
@@ -83,11 +76,11 @@ LoginComponent.propTypes = propTypes;
 LoginComponent.defaultProps = defaultProps;
 
 const stateProps = (state) => ({
-	isLoggingIn: state.ui.loading['login'] || state.ui.loading['social'],
-	error: state.ui.errors['login'] || state.ui.errors['social']
+	loading: state.ui.loading['updatePassword'],
+	error: state.ui.errors['updatePassword']
 });
 const dispatchProps = {
-	login,
-	social,
+	updatePassword,
+	logout
 };
 export default connect(stateProps, dispatchProps)(LoginComponent);
