@@ -2,7 +2,6 @@ import React from 'react';
 import ReCAPTCHA from "react-google-recaptcha";
 
 export default ({input, meta, ...rest}) => {
-	console.log('meta : ', meta);
 	const recaptchaRef = React.createRef();
 	const onExpired = () => {
 		recaptchaRef.reset();

@@ -2,8 +2,7 @@ import React, { Component } from 'react';
 import { TopNav } from '../index'
 import './Header.scss';
 import { connect } from 'react-redux';
-import { navigateTo } from '../../../redux/actions';
-import authService from '../../../services/auth';
+import { logout } from '../../../redux/actions';
 
 class HeaderComponent extends Component {
 
@@ -13,8 +12,8 @@ class HeaderComponent extends Component {
 	}
 
 	logOut() {
-		const {navigateTo} = this.props;
-		authService.logoutUser(navigateTo);
+		const {logout} = this.props;
+		logout();
 	}
 
 	render() {
@@ -57,12 +56,12 @@ class HeaderComponent extends Component {
 			</header>
 		);
 	}
-};
+}
 
 const stateProps = (state) => ({
 	user: state.auth.user
 });
 const dispatchProps = {
-	navigateTo,
+	logout,
 };
 export default connect(stateProps, dispatchProps)(HeaderComponent);

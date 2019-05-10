@@ -1,4 +1,5 @@
 import axios from 'axios';
+import authService from './auth';
 // Default config options
 const defaultOptions = {
 	// baseURL: 'http://voomsway-api.herokuapp.com/api/v1',
@@ -14,7 +15,7 @@ const instance = axios.create(defaultOptions);
 // Set the AUTH token for any request
 instance.interceptors.request.use(
 	(config) => {
-		// config.headers['x-access-token'] = authService.getUserSession();
+		config.headers['x-access-token'] = authService.getUserSession();
 		return config;
 	},
 	(error) => {

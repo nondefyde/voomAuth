@@ -1,8 +1,5 @@
 import jwtDecode from 'jwt-decode';
 import get from 'lodash/get';
-import { push } from 'connected-react-router';
-import { LOGOUT } from '../redux/actions';
-import APP from '../constants/app';
 
 class AuthService {
 	constructor() {
@@ -36,11 +33,12 @@ class AuthService {
 
 	clearUserData() {
 		localStorage.removeItem('v:persist');
+		const item = localStorage.getItem('v:persist');
+		console.log('item : ', item);
 	}
 
-	logoutUser(navigateTo) {
+	logoutUser() {
 		this.clearUserData();
-		navigateTo(APP.LOGIN);
 	}
 }
 

@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
+
 import { Alert } from 'reactstrap';
 import { login, social } from '../../../redux/actions';
 import authService from '../../../services/auth';
@@ -20,8 +21,8 @@ const defaultProps = {
 };
 
 const data = {
-	email: "",
-	password: ""
+	email: "nondefyde@gmail.com",
+	password: "password"
 };
 
 class LoginComponent extends Component {
@@ -33,7 +34,6 @@ class LoginComponent extends Component {
 	}
 
 	componentDidMount() {
-		authService.clearUserData();
 	}
 
 	handleSubmit(values) {
@@ -56,7 +56,7 @@ class LoginComponent extends Component {
 		const {isLoggingIn, error} = this.props;
 		return (
 			<main role="main" className="auth-container">
-				<Link to={''} >
+				<Link to={''}>
 					<img src={'/assets/img/auth-logo.png'} className="app-login-logo" alt={'logo'}/>
 				</Link>
 				<div className="access-area">
@@ -69,7 +69,7 @@ class LoginComponent extends Component {
 							socialResponse={this.socialResponse}
 						/>
 					</div>
-					<LoginForm onSubmit={this.handleSubmit} formLoading={isLoggingIn}/>
+					<LoginForm initialValues={data} onSubmit={this.handleSubmit} formLoading={isLoggingIn}/>
 				</div>
 				<p className="text">New to voomsway? <Link to={'/register'}> Create Account</Link></p>
 				<p className="text"><Link to={'/reset-password'}>Forgot password?</Link></p>

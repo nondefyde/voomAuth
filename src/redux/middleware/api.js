@@ -1,5 +1,6 @@
 import _ from 'lodash';
 import { toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 import { push } from 'connected-react-router';
 import { API_REQUEST } from '../actions';
 import { startUILoading, stopUILoading, uiSetPagination, updateUIError } from '../actions/ui'

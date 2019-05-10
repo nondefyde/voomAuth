@@ -10,7 +10,6 @@ import applicationMiddleware from './middleware';
 
 export const history = createBrowserHistory();
 
-
 export const getPersistedStore = () => {
 	let cache = {};
 	if (localStorage.hasOwnProperty('v:persist')) {
