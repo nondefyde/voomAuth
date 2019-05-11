@@ -135,3 +135,29 @@ main {
   margin-bottom: .5rem;
 }
 
+.profile-wrap {
+  margin: 50px;
+  h1 {
+    font-size: 35px;
+    margin-bottom: 20px;
+  }
+  .profile-inwrap {
+    border-radius: 5px;
+    padding: 30px;
+    box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.1);
+    background-color: #ffffff;
+    border: solid 0.5px #e2e2e2;
+  }
+  .profile-data {
+    padding-top: 25px;
+    label {
+      font-size: 12px;
+      color: #a0a0a0;
+      text-transform: uppercase;
+    }
+    input {
+      color: #000;
+      font-size: 12px;
+    }
+  }
+}

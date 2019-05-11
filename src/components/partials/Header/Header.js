@@ -2,18 +2,23 @@ import React, { Component } from 'react';
 import { TopNav } from '../index'
 import './Header.scss';
 import { connect } from 'react-redux';
-import { logout } from '../../../redux/actions';
+import { logout, navigateTo } from '../../../redux/actions';
 
 class HeaderComponent extends Component {
 
 	constructor(props) {
 		super(props);
-		this.logOut = this.logOut.bind(this);
+		this.navigate = this.navigate.bind(this);
 	}
 
-	logOut() {
-		const {logout} = this.props;
-		logout();
+	navigate(e, link) {
+		e.preventDefault();
+		const {navigateTo, logout} = this.props;
+		if (link === '/logout') {
+			logout();
+		} else {
+			navigateTo(link);
+		}
 	}
 
 	render() {
@@ -48,7 +53,7 @@ class HeaderComponent extends Component {
 						<div className="btn-group account_setting">
 							<TopNav
 								user={user}
-								logout={this.logOut}
+								navigate={this.navigate}
 							/>
 						</div>
 					</div>
@@ -63,5 +68,6 @@ const stateProps = (state) => ({
 });
 const dispatchProps = {
 	logout,
+	navigateTo
 };
 export default connect(stateProps, dispatchProps)(HeaderComponent);

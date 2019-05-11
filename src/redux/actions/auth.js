@@ -10,6 +10,7 @@ export const VERIFY = createActionType('VERIFY', 'auth');
 export const VERIFY_LINK = createActionType('VERIFY_LINK', 'auth');
 export const RESEND_VERIFY = createActionType('RESEND_VERIFY', 'auth');
 export const LOGOUT = createActionType('LOGOUT', 'auth');
+export const CHANGE_PASSWORD = createActionType('CHANGE_PASSWORD', 'auth');
 
 export const login = (payload) => ({
 	type: LOGIN.START,
@@ -33,6 +34,11 @@ export const resetPassword = (payload) => ({
 
 export const updatePassword = (payload) => ({
 	type: UPDATE_PASSWORD.START,
+	payload
+});
+
+export const changePassword = (payload) => ({
+	type: CHANGE_PASSWORD.START,
 	payload
 });
 

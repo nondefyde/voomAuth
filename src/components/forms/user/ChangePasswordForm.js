@@ -6,6 +6,9 @@ import Progress from '../../Progress/index';
 
 const validate = (values) => {
 	const errors = {};
+	if (!values.current_password) {
+		errors.password = 'Please enter your current password';
+	}
 	if (!values.password) {
 		errors.password = 'Please enter your password';
 	} else if (values.password.length < 6) {
@@ -22,24 +25,40 @@ const ChangePasswordForm = (props) => {
 	const {handleSubmit, submitting, formLoading, pristine} = props;
 	return (
 		<Form onSubmit={handleSubmit}>
-			<div className="form-group">
-				<Field name="password" type="password"
-				       disabled={formLoading}
-				       component={InputField} placeholder="Password"/>
+			<div className="row">
+				<div className="col-md-12">
+					<div className="form-group">
+						<label>Old Password</label>
+						<div className="form-group">
+							<Field name="current_password" type="password"
+							       disabled={formLoading}
+							       component={InputField} placeholder="Current Password"/>
+						</div>
+						<div className="form-group">
+							<label>New Password</label>
+							<Field name="password" type="password"
+							       disabled={formLoading}
+							       component={InputField} placeholder="New Password"/>
+						</div>
+						<div className="form-group">
+							<label>Confirm Password</label>
+							<Field name="confirm_password" type="password"
+							       disabled={formLoading}
+							       component={InputField} placeholder="Confirm Password"/>
+						</div>
+						<div className="form-group">
+							<Button color="primary" disabled={formLoading || submitting}
+							        className="btn-block px-4">{formLoading ? <Progress/> : 'Reset Password'}</Button>
+						</div>
+					</div>
+				</div>
 			</div>
-			<div className="form-group">
-				<Field name="confirm_password" type="password"
-				       disabled={formLoading}
-				       component={InputField} placeholder="Confirm Password"/>
-			</div>
-			<Button color="primary" disabled={formLoading || submitting}
-			        className="btn-block px-4">{formLoading ? <Progress/> : 'Reset Password'}</Button>
 		</Form>
 	);
 };
 
 export default (reduxForm({
 	// a unique name for the form
-	form: 'registerForm',
+	form: 'changePasswordForm',
 	validate
 })(ChangePasswordForm));

@@ -29,13 +29,13 @@ export default class App extends Component {
 				/>
 				<ConnectedRouter history={history}>
 					<Switch>
-						<Route path="/" name="Voomsway" component={DefaultLayout}/>
 						<Route exact path="/login" name="Login" component={LoginComponent}/>
 						<Route exact path="/register" name="Register" component={RegisterComponent}/>
 						<Route exact path="/reset-password" name="Reset Password" component={ResetPasswordComponent}/>
 						<Route exact path="/verify-link/:email/:hash" name="Verify" component={VerifyLinkComponent}/>
 						<Route exact path="/update-password/:email/:hash" name="Update Password" component={UpdatePasswordComponent}/>
 						<Route isPrivate={true} exact path="/verify" name="Verify" component={VerifyComponent}/>
+						<Route path="/" name="Voomsway" component={DefaultLayout}/>
 					</Switch>
 				</ConnectedRouter>
 			</Fragment>

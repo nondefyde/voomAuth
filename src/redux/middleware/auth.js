@@ -7,13 +7,15 @@ import {
 	REGISTER,
 	RESEND_VERIFY,
 	RESET_PASSWORD,
-	SOCIAL, UPDATE_PASSWORD,
+	SOCIAL,
+	UPDATE_PASSWORD,
 	VERIFY,
 	VERIFY_LINK
 } from '../actions';
 import API from '../../constants/api';
 import APP from '../../constants/app';
 import authservice from '../../services/auth';
+import { CHANGE_PASSWORD } from '../actions/auth';
 
 const social = ({dispatch}) => (next) => (action) => {
 	next(action);
@@ -135,7 +137,6 @@ const resetPassword = ({dispatch}) => (next) => (action) => {
 	}
 };
 
-
 const updatePassword = ({dispatch}) => (next) => (action) => {
 	next(action);
 	if (action.type === UPDATE_PASSWORD.START) {
@@ -149,6 +150,20 @@ const updatePassword = ({dispatch}) => (next) => (action) => {
 	}
 };
 
+const changePassword = ({dispatch}) => (next) => (action) => {
+	next(action);
+	if (action.type === CHANGE_PASSWORD.START) {
+		dispatch(apiRequest({
+			method: POST,
+			url: API.CHANGE_PASSWORD,
+			key: 'updatePassword',
+			onSuccess: CHANGE_PASSWORD.SUCCESS,
+			payload: action.payload
+		}));
+	}
+};
+
+
 const logout = ({dispatch}) => (next) => (action) => {
 	next(action);
 	if (action.type === LOGOUT.START) {
@@ -160,4 +175,5 @@ const logout = ({dispatch}) => (next) => (action) => {
 	}
 };
 
-export default [social, login, register, verify, verifyLink, resendVerify, resetPassword, updatePassword, logout];
+
+export default [social, login, register, verify, verifyLink, resendVerify, resetPassword, updatePassword, changePassword, logout];

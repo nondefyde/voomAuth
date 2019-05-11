@@ -20,12 +20,11 @@ const defaultProps = {
 	error: null
 };
 
-class LoginComponent extends Component {
+class UpdatePasswordComponent extends Component {
 
 	constructor(props) {
 		super(props);
 		this.handleSubmit = this.handleSubmit.bind(this);
-		this.socialResponse = this.socialResponse.bind(this);
 	}
 
 	componentDidMount() {
@@ -39,17 +38,6 @@ class LoginComponent extends Component {
 		const {match: {params}, updatePassword} = this.props;
 		const data = {...values, hash: params['hash'], email: params['email']};
 		updatePassword(data);
-	}
-
-	socialResponse({provider, social_id, email, access_token, error}) {
-		if (error) {
-			console.log('error : ', error);
-		} else {
-			const data = {email, social_id, provider, access_token};
-			console.log('data : ', data);
-			const {social} = this.props;
-			social(data);
-		}
 	}
 
 	render() {
@@ -72,8 +60,8 @@ class LoginComponent extends Component {
 	}
 }
 
-LoginComponent.propTypes = propTypes;
-LoginComponent.defaultProps = defaultProps;
+UpdatePasswordComponent.propTypes = propTypes;
+UpdatePasswordComponent.defaultProps = defaultProps;
 
 const stateProps = (state) => ({
 	loading: state.ui.loading['updatePassword'],
@@ -83,4 +71,4 @@ const dispatchProps = {
 	updatePassword,
 	logout
 };
-export default connect(stateProps, dispatchProps)(LoginComponent);
+export default connect(stateProps, dispatchProps)(UpdatePasswordComponent);
