@@ -9,4 +9,7 @@ export default {
 	SOCIAL: '/social-auth',
 	SEND_RESET: '/reset-password',
 	CHANGE_PASSWORD: '/change-password',
+
+	USER_PROFILE: '/users/me',
+	USERS: '/users'
 };

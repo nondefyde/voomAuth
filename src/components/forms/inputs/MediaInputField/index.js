@@ -32,6 +32,7 @@ class MediaInputField extends Component {
         if (file) {
             const name = this.props.input.name;
             onFileReady({[name]: file});
+            console.log('{[name]: file} : ', {[name]: file});
             if (prevProps && prevProps.file && file.url === prevProps.file.url) {
                 this.props.uiCropClearCurrent();
             }
@@ -71,7 +72,7 @@ class MediaInputField extends Component {
                        type='file'
                        onChange={this.handleFileChange}
                        disabled={disabled}
-                       className={classNames('form-control', className, {'is-invalid': touched && error})}/>
+                       className={classNames(className, {'is-invalid': touched && error})}/>
                 {touched && error && <FormFeedback className="d-block">{error}</FormFeedback>}
             </Fragment>
         );

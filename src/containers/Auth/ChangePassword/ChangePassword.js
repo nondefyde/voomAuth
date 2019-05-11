@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
-import ChangePasswordForm from '../../../components/forms/user/ChangePasswordForm';
+import ChangePasswordForm from '../../../components/forms/auth/ChangePasswordForm';
 
 import { Alert } from 'reactstrap';
 import { changePassword, logout } from '../../../redux/actions/index';

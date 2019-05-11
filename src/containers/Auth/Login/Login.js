@@ -10,7 +10,7 @@ import SocialAuth from '../../../components/SocialAuth'
 import '../Auth.scss';
 
 const propTypes = {
-	error: PropTypes.object,
+	error: PropTypes.string,
 	isLoggingIn: PropTypes.bool,
 	login: PropTypes.func.isRequired,
 	social: PropTypes.func.isRequired,

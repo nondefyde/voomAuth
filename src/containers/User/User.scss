@@ -1,0 +1,127 @@
+.profile-wrap {
+    margin: 20px;
+    h1 {
+        font-size: 35px;
+        margin-bottom: 20px;
+    }
+    .profile-inwrap {
+        border-radius: 5px;
+        padding: 30px;
+        box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.1);
+        background-color: #ffffff;
+        border: solid 0.5px #e2e2e2;
+    }
+
+    .btn-light {
+        font-size: 12px;
+        font-weight: 500;
+        background: #fff;
+        border: 1px solid #a0a0a0;
+
+        &:hover {
+            color: #17a2b8;
+        }
+    }
+    .profile-data {
+        padding-top: 25px;
+        label {
+            font-size: 12px;
+            color: #a0a0a0;
+            text-transform: uppercase;
+        }
+        input {
+            color: #000;
+            font-size: 12px;
+        }
+    }
+
+    .react-datepicker-wrapper {
+        display: block;
+        .react-datepicker__input-container {
+            width: 100%;
+        }
+    }
+
+    .css-wsu9h2-control {
+        height: 50px !important;
+    }
+
+
+    .profile-avatar-wrap {
+        padding-bottom: 10px;
+        border-bottom: 1px solid #a0a0a0;
+        .avatar-bg {
+            width: 150px;
+            height: 150px;
+            -webkit-background-size: cover;
+            background-size: cover;
+            background-position: center center;
+        }
+        .avatar {
+            cursor: default;
+            border: 1px solid #efefef;
+            border-radius: 5px;
+            padding: 5px;
+            width: 150px;
+            height: 150px;
+            overflow: hidden;
+            position: relative;
+            display: inline-block;
+        }
+        .edit-avatar {
+            border: 1px solid #efefef;
+            border-radius: 5px;
+            padding: 5px;
+            width: 150px;
+            height: 150px;
+            overflow: hidden;
+            position: relative;
+            display: inline-block;
+            cursor: pointer;
+            input[type=file] {
+                position: absolute;
+                left: 0;
+                top: 0;
+                right: 0;
+                bottom: 0;
+                opacity: 0;
+                height: 100%;
+                z-index: 20;
+                cursor: pointer;
+            }
+            img {
+                border-radius: 5px;
+            }
+
+            &.edit-avatar {
+                &:after {
+                    position: absolute;
+                    content: "";
+                    left: 0;
+                    right: 0;
+                    top: 100%;
+                    bottom: 0;
+                    z-index: 10;
+                    background: rgba(0, 0, 0, 0.2);
+                    border-radius: 5px;
+                }
+                &:hover:after {
+                    top: 0;
+                }
+            }
+        }
+        h3 {
+            font-size: 25px;
+            margin-top: 15px;
+            margin-bottom: 15px;
+        }
+        .btn-light {
+            font-size: 12px;
+            font-weight: 500;
+            background: #fff;
+            border: 1px solid #a0a0a0;
+        }
+    }
+}
+
+

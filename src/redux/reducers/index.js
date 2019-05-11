@@ -8,7 +8,7 @@ import ui from './ui/ui';
 export default (history) => combineReducers({
 	router: connectRouter(history),
 	form: formReducer,
-	users,
 	ui,
 	auth,
+	users,
 });

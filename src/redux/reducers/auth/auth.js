@@ -1,4 +1,4 @@
-import { CHANGE_PASSWORD, LOGIN, LOGOUT, REGISTER, RESEND_VERIFY, SOCIAL } from '../../actions';
+import { CHANGE_PASSWORD, LOGIN, LOGOUT, REGISTER, RESEND_VERIFY, SOCIAL, UPDATE_PROFILE } from '../../actions';
 import { VERIFY } from '../../actions/auth';
 
 const defaultState = {
@@ -14,6 +14,7 @@ const userReducer = (state = defaultState, action) => {
 		return Object.assign({}, state, action.payload);
 	case RESEND_VERIFY.SUCCESS:
 	case CHANGE_PASSWORD.SUCCESS:
+	case UPDATE_PROFILE.SUCCESS:
 	case VERIFY.SUCCESS:
 		return Object.assign({}, state, {
 			...state, user: action.payload

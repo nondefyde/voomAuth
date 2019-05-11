@@ -37,15 +37,15 @@ const apiRequest = ({dispatch}) => (next) => (action) => {
 		dispatch(startUILoading(key));
 		createAPIRequest(config)
 			.then((apiResponse) => {
-				const {data, _meta} = apiResponse.data;
+				const {data: payload, _meta} = apiResponse.data;
 				if (onSuccess) {
-					const payload = {
-						user: data
-					};
 					if (_meta && _meta.token) {
-						payload.session = _meta.token;
+						let data = {user: payload};
+						data['session'] = _meta.token;
+						dispatch({type: onSuccess, payload: data});
+					} else {
+						dispatch({type: onSuccess, payload});
 					}
-					dispatch({type: onSuccess, payload});
 				}
 				if (_meta && _meta.pagination) {
 					dispatch(uiSetPagination(key, _meta.pagination));

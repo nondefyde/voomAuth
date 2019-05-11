@@ -4,6 +4,8 @@ import { ToastContainer } from 'react-toastify';
 import { Switch } from 'react-router-dom';
 import { ConnectedRouter } from 'connected-react-router';
 import Route from './components/Route/Route';
+import 'react-toastify/dist/ReactToastify.min.css';
+import ImageCropOverlay from './components/ImageCropOverlay';
 import { history } from './redux/store';
 import LoginComponent from './containers/Auth/Login/Login';
 import RegisterComponent from './containers/Auth/Register/Register';
@@ -17,6 +19,7 @@ export default class App extends Component {
 	render() {
 		return (
 			<Fragment>
+				<ImageCropOverlay/>
 				<ToastContainer
 					autoClose={5000}
 					hideProgressBar={true}

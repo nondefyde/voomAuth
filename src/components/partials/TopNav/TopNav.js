@@ -24,7 +24,8 @@ const TopNav = ({user, navigate}) => {
 			{user && <NavDropdown title="MY ACCOUNT" id="basic-nav-dropdown">
 				<NavDropdown.Item href="" onClick={(e) => navigate(e, '/trips')}>My Trips</NavDropdown.Item>
 				<NavDropdown.Item href="" onClick={(e) => navigate(e, '/profile')}>Profile</NavDropdown.Item>
-				<NavDropdown.Item href="" onClick={(e) => navigate(e, '/change-password')}>Change Password</NavDropdown.Item>
+				<NavDropdown.Item href="" onClick={(e) => navigate(e, '/change-password')}>Change
+					Password</NavDropdown.Item>
 				<NavDropdown.Item href="" onClick={(e) => navigate(e, '/logout')}>Logout</NavDropdown.Item>
 			</NavDropdown>}
 		</ul>
